@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     collegeName:{
-        type: String,
+                type: String,
         required: true
     },
     branch:{

@@ -1,12 +1,12 @@
 const mongoose = require("mongoose")
 mongoose.Promise = global.Promise;
 
-const waterSchema = new mongoose.Schema({
+const WaterSchema = new mongoose.Schema({
     roomNo:{
         type: String,
         required: true
     },
-    romeMates:[
+    roomMates:[
         {
             type: mongoose.Schema.ObjectId,
             ref: 'user'
