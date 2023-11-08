@@ -42,8 +42,13 @@ router.post("/add", async (req,res,next)=>{
 
 
 })
-router.get('/get',async(req,res,next)=>{
 
-    quotes.find().then(data=>res.json(data)).catch(error=>res.status(400).json("Error :"+error))
-})
+
+
+    router.get('/fetch-quotes',async  (req, res) => {
+        await quotes.find()
+          .then(data => res.json(data))
+          .catch(error => res.status(400).json("Error: " + error));
+      });
+
 module.exports = router;
