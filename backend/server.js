@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); 
 app.use("/", register);
 app.use("/quotes", quotes);
-
+require('dotenv').config();
 app.use((req, res, next) => {
     const error = new Error('Not found');
     error.status = 404;
@@ -28,6 +28,7 @@ app.use((error, req, res, next) => {
         }
     });
 });
+
 
 app.listen(process.env.PORT, ()=>{
     console.log(`Server is running on port ${process.env.PORT}`);
