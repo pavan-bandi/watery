@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const quotes = require('./routes/quotes');
 const register = require('./routes/loginRegister');
+const water = require('./routes/water');    
 const connectDatabase=require("./config/database");
 connectDatabase();
 app.use(cors());
@@ -13,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); 
 app.use("/", register);
 app.use("/quotes", quotes);
+app.use("/water", water);
 require('dotenv').config();
 app.use((req, res, next) => {
     const error = new Error('Not found');
