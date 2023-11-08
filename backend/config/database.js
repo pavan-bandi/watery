@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
-console.log(process.env.DB_URL)
-console.log(process.env.PORT)
 
 const connectDatabase=()=>{
     mongoose
@@ -9,7 +7,6 @@ const connectDatabase=()=>{
       useNewUrlParser: true,
   
       useUnifiedTopology: true,
-      
     }) .then((data) => {
       1
         console.log("Mongodb connected with server: ${data.connection.host}");

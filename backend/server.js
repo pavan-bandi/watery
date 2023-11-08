@@ -1,14 +1,17 @@
+require('dotenv').config()
 const exp = require('express'); 
 const app = exp();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const quotes = require('./api/quotes');
+const quotes = require('./routes/quotes');
+const register = require('./routes/loginRegister');
 const connectDatabase=require("./config/database");
 connectDatabase();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json()); 
+app.use("/", register);
 app.use("/quotes", quotes);
 require('dotenv').config();
 app.use((req, res, next) => {
@@ -26,6 +29,7 @@ app.use((error, req, res, next) => {
     });
 });
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server is running on http://localhost:${process.env.PORT}`);
-  });
+
+app.listen(process.env.PORT, ()=>{
+    console.log(`Server is running on port ${process.env.PORT}`);
+});
