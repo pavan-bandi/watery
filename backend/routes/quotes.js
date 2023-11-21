@@ -8,7 +8,7 @@ const router = exp.Router();
 //         message: "Hello from server"
 //     });
 // });
-
+// nhqjh
 
 router.post("/add", async (req,res,next)=>{
     const quote=req.body;
